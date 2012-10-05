@@ -48,12 +48,12 @@ module Daemons
     
     def output_logfile
       logdir = options[:dir_mode] == :system ? '/var/log' : pidfile_dir
-      (options[:log_output] && logdir) ? File.join(logdir, @group.app_name + '.output') : nil
+      (options[:log_output] && logdir) ? File.join(logdir, @group.app_name + '.log') : nil
     end
     
     def logfile
       logdir = options[:dir_mode] == :system ? '/var/log' : pidfile_dir
-      logdir ? File.join(logdir, @group.app_name + '.log') : nil
+      logdir ? File.join(logdir, @group.app_name + '.error') : nil
     end
     
     # this function is only used to daemonize the currently running process (Daemons.daemonize)
